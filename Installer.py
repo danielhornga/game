@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tkinter
 import urllib.request
+import time
 
 def Installation():
 
@@ -43,6 +44,9 @@ def InstallationScreen():
     global y
     global LoadScreen
 
+    ##Setup animation loop variable##
+    Animation = True
+
     ##Kill Tkinter Initial Menu##
     InstallWindow.destroy()
 
@@ -54,6 +58,20 @@ def InstallationScreen():
     LoadScreen.lift()
     LoadScreen.call("wm", "attributes", ".", "-topmost", "1")
     Installation()
+    LoadingText = tkinter.Label(LoadScreen, text="")
+    LoadingText.place(relx=.5, rely=.5, anchor="c")
+    def LoadingAnimation():
+        while Animation:
+            LoadingText = tkinter.Label(LoadScreen, text="Loading.")
+            LoadingText.update()
+            time.sleep(2)
+            LoadingText = tkinter.Label(LoadScreen, text="Loading..")
+            LoadingText.update()
+            time.sleep(2)
+            LoadingText = tkinter.Label(LoadScreen, text="Loading...")
+            LoadingText.update()
+            time.sleep(2)
+    LoadingAnimation()
     LoadScreen.mainloop()
 
 ##tkinter window initialisation##
