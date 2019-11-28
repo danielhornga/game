@@ -43,12 +43,12 @@ def InstallationScreen():
     global x
     global y
     global LoadScreen
+    
+    ##Kill Tkinter Initial Menu##
+    InstallWindow.destroy()
 
     ##Setup animation loop variable##
     Animation = True
-
-    ##Kill Tkinter Initial Menu##
-    InstallWindow.destroy()
 
     ##Create 'Loading' Screen##
     LoadScreen = tkinter.Tk()
