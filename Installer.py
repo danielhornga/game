@@ -43,7 +43,7 @@ def InstallationScreen():
     global x
     global y
     global LoadScreen
-    
+
     ##Kill Tkinter Initial Menu##
     InstallWindow.destroy()
 
@@ -58,17 +58,18 @@ def InstallationScreen():
     LoadScreen.lift()
     LoadScreen.call("wm", "attributes", ".", "-topmost", "1")
     Installation()
-    LoadingText = tkinter.Label(LoadScreen, text="")
-    LoadingText.place(relx=.5, rely=.5, anchor="c")
     def LoadingAnimation():
         while Animation:
             LoadingText = tkinter.Label(LoadScreen, text="Loading.")
+            LoadingText.place(relx=.5, rely=.5, anchor="c")
             LoadingText.update()
             time.sleep(2)
             LoadingText = tkinter.Label(LoadScreen, text="Loading..")
+            LoadingText.place(relx=.5, rely=.5, anchor="c")
             LoadingText.update()
             time.sleep(2)
             LoadingText = tkinter.Label(LoadScreen, text="Loading...")
+            LoadingText.place(relx=.5, rely=.5, anchor="c")
             LoadingText.update()
             time.sleep(2)
     LoadingAnimation()
