@@ -11,7 +11,7 @@ import os
 
 path = os.getcwd()
 vLiveFilePath = path + "/Config/Live-Version.txt"
-url = "https://raw.githubusercontent.com/danielhornga/game/config/Live-Version"
+url = "https://raw.githubusercontent.com/danielhornga/game/master/Live-Version"
 urllib.request.urlretrieve(url, vLiveFilePath)
 
 ##Set Local File Path##
