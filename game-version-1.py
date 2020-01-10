@@ -57,6 +57,7 @@ except FileNotFoundError:
         f.close()
         os.system("game-version-1-U.py 1")
         os.remove("game-version-1.py")
+        quit()
 
 else:
     f.close()
