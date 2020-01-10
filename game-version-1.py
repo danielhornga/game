@@ -11,6 +11,8 @@ except FileNotFoundError:
     import urllib.request
     import os
     import shutil
+    import subprocess
+    from subprocess import Popen
 
     ##Fetch File For Most Recent Patch##
 
@@ -55,7 +57,7 @@ except FileNotFoundError:
         ##Relaunch and second phase pass##
         f = open(SecondPhaseFP, "w+")
         f.close()
-        os.system("game-version-1-U.py 1")
+        process = subprocess.Popen(["python", gnpath])
         os.remove("game-version-1.py")
         quit()
 
