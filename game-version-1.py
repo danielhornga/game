@@ -63,6 +63,7 @@ except FileNotFoundError:
 
 else:
     f.close()
+    import os
     path = os.getcwd()
     gpath = path + "/game-version-1.py"
     gnpath = path + "/game-version-1-U.py"
