@@ -65,39 +65,39 @@ except FileNotFoundError:
             os.remove("game-version-1.py")
             quit()
 
-    ##Setup animation loop variable##
-    Animation = True
+        ##Setup animation loop variable##
+        Animation = True
 
-    ##Create 'Loading' Screen##
-    LoadScreen = tkinter.Tk()
-    WindowWidth = 750
-    WindowHeight = 500
-    ScreenWidth = LoadScreen.winfo_screenwidth()
-    ScreenHeight = LoadScreen.winfo_screenheight()
-    x = (ScreenWidth/2) - (WindowWidth/2)
-    y = (ScreenHeight/2) - (WindowHeight/2)
-    LoadScreen.title("")
-    LoadScreen.geometry('%dx%d+%d+%d' % (WindowWidth, WindowHeight, x, y))
-    LoadScreen.resizable(0, 0)
-    LoadScreen.lift()
-    LoadScreen.call("wm", "attributes", ".", "-topmost", "1")
-    Update()
-    def LoadingAnimation():
-        while Animation:
-            LoadingText = tkinter.Label(LoadScreen, text="Loading.")
-            LoadingText.place(relx=.5, rely=.5, anchor="c")
-            LoadingText.update()
-            time.sleep(2)
-            LoadingText = tkinter.Label(LoadScreen, text="Loading..")
-            LoadingText.place(relx=.5, rely=.5, anchor="c")
-            LoadingText.update()
-            time.sleep(2)
-            LoadingText = tkinter.Label(LoadScreen, text="Loading...")
-            LoadingText.place(relx=.5, rely=.5, anchor="c")
-            LoadingText.update()
-            time.sleep(2)
-    LoadingAnimation()
-    LoadScreen.mainloop()
+        ##Create 'Loading' Screen##
+        LoadScreen = tkinter.Tk()
+        WindowWidth = 750
+        WindowHeight = 500
+        ScreenWidth = LoadScreen.winfo_screenwidth()
+        ScreenHeight = LoadScreen.winfo_screenheight()
+        x = (ScreenWidth/2) - (WindowWidth/2)
+        y = (ScreenHeight/2) - (WindowHeight/2)
+        LoadScreen.title("")
+        LoadScreen.geometry('%dx%d+%d+%d' % (WindowWidth, WindowHeight, x, y))
+        LoadScreen.resizable(0, 0)
+        LoadScreen.lift()
+        LoadScreen.call("wm", "attributes", ".", "-topmost", "1")
+        Update()
+        def LoadingAnimation():
+            while Animation:
+                LoadingText = tkinter.Label(LoadScreen, text="Loading.")
+                LoadingText.place(relx=.5, rely=.5, anchor="c")
+                LoadingText.update()
+                time.sleep(2)
+                LoadingText = tkinter.Label(LoadScreen, text="Loading..")
+                LoadingText.place(relx=.5, rely=.5, anchor="c")
+                LoadingText.update()
+                time.sleep(2)
+                LoadingText = tkinter.Label(LoadScreen, text="Loading...")
+                LoadingText.place(relx=.5, rely=.5, anchor="c")
+                LoadingText.update()
+                time.sleep(2)
+        LoadingAnimation()
+        LoadScreen.mainloop()
 
 else:
     f.close()
