@@ -8,6 +8,8 @@ import sys
 import tkinter
 import urllib.request
 import time
+import winshell
+from win32com.client import Dispatch
 
 def Installation():
 
@@ -26,11 +28,26 @@ def Installation():
     f.write("Screen_Height:800\nScreen_Width:800\nFPS:244")
     f.close
 
+    ##Keybindings File Creation
+    kfname = os.path.join(cfilepath, "Keybindings.txt")
+    f = open(kfname, "w+")
+    f.close()
+    
     ##Program web downloads##
     url = "https://raw.githubusercontent.com/danielhornga/game/master/game-version-1.py"
     urllib.request.urlretrieve(url, gpath)
     url = "https://raw.githubusercontent.com/danielhornga/game/master/Uninstaller.py"
     urllib.request.urlretrieve(url, upath)
+
+    ##Shortcut creation##
+    desktop = winshell.desktop()
+    dpath = desktop + "/GAME_VERSION_1.lnk"
+    shell = Dispatch('WScript.Shell')
+    shortcut = shell.CreateShortCut(dpath)
+    shortcut.Targetpath = gpath
+    shortcut.WorkingDirectory = path
+    shortcut.IconLocation = gpath
+    shortcut.save()
 
     ##Kill Tkinter Loading Screen##
     LoadScreen.destroy()
@@ -88,6 +105,18 @@ InstallWindow.geometry('%dx%d+%d+%d' % (WindowWidth, WindowHeight, x, y))
 InstallWindow.resizable(0, 0)
 InstallWindow.lift()
 InstallWindow.call("wm", "attributes", ".", "-topmost", "1")
+BaseText = tkinter.Label(InstallWindow, text="Line 1 Test") #Title Text ~TO MAKE BOLD
+BaseText.place(relx=.5, rely=.2, anchor="c")
+BaseText = tkinter.Label(InstallWindow, text="Line 2 Test") #Main Text Body
+BaseText.place(relx=.5, rely=.3, anchor="c")
+BaseText = tkinter.Label(InstallWindow, text="Line 3 Test") # ""
+BaseText.place(relx=.5, rely=.4, anchor="c")
+BaseText = tkinter.Label(InstallWindow, text="Line 4 Test") # ""
+BaseText.place(relx=.5, rely=.5, anchor="c")
+BaseText = tkinter.Label(InstallWindow, text="Line 5 Test") # ""
+BaseText.place(relx=.5, rely=.6, anchor="c")
+BaseText = tkinter.Label(InstallWindow, text="Line 6 Test") #Last line to leave spacing of at least .2 
+BaseText.place(relx=.5, rely=.7, anchor="c")
 ContinueButton = tkinter.Button(InstallWindow, text="Continue", command=InstallationScreen, height=1, width=10)
 ContinueButton.place(relx=.9, rely=.9, anchor="c")
 ExitButton = tkinter.Button(InstallWindow, text="Exit", command=InstallWindow.destroy, height=1, width=10)
